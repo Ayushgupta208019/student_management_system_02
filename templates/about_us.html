@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for x in developers_details %}
+<section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 bg-primary text-brown"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img src="/{{x.admin_profile_pic}}"
+                  alt="Avatar" class="img-fluid my-5" style="width: 150px;" />
+                <center><h4>{{x.admin_name}}</h4></center> 
+                <center><h6>({{x.designation}})</h6></center> 
+
+                <center><strong><p>{{x.profile}}</p></strong></center>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Admin Details</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">{{x.admin_email}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Phone</h6>
+                      <p class="text-muted">+91 {{x.admin_phone}}</p>
+                    </div>
+                  </div>
+                  <h6>Social Links</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Follow Me Us On</h6>
+                    </div>
+                    
+                  </div>
+                  <div class="d-flex justify-content-start">
+                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                    &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                    &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endfor %}
+
+{% endblock content %}

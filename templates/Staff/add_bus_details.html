@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card-sm-12 my-4 mx-4 p-3 pt-2 bg-primary">
+    <div class="row-sm-12">
+        <div class="col">
+            <div class="card mt-4">
+                <div class="card-body mt-2">
+                    <form method="post", action="{% url 'add_bus_details' %}">
+                        {% csrf_token %}
+
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Bus Details</span></h5>
+                        </div>
+                        
+                        {% include 'includes/messages.html' %}
+
+        
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Bus Code</label>
+                                <input type="text" class="form-control" name="bus_code" required>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Bus Fair</label>
+                                <input type="text" class="form-control" name="bus_fair" required>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Bus Type</label>
+                                <select name="bus_type" class="form-control" required>
+                                    <option>Select</option>
+                                    <option>AC Bus</option>
+                                    <option>Non-Ac Bus</option>
+                                </select>                           
+                             </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Bus Route</label>
+                                <textarea name="bus_route" id="bus_route" cols="10" rows="2" class="form-control" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Course</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

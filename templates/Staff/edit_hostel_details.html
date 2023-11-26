@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card-sm-12 my-4 mx-4 p-3 pt-2 bg-primary">
+    <div class="row-sm-12">
+        <div class="col">
+            <div class="card mt-4">
+                <div class="card-body mt-2">
+                    <form method="post", action="{% url 'update_hostel_details' %}">
+                        {% csrf_token %}
+
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Hostel Details</span></h5>
+                        </div>
+                        
+                        {% include 'includes/messages.html' %}
+
+        
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Hostel Block</label>
+                                <input type="text" class="form-control" name="hostel_block" value={{hostel.hostel_block}}>
+                                <input type="text" class="form-control" name="hostel_id" value="{{hostel.id}}" hidden>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Hostel Fair</label>
+                                <input type="text" class="form-control" name="hostel_fair" value="{{hostel.hostel_fair}}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Hostel Type</label>
+                                <select name="hostel_type" class="form-control" value="{{hostel.hostel_type}}">
+                                    <option>Select</option>
+                                    <option>AC</option>
+                                    <option>Non-AC</option>
+                                </select>                           
+                             </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Hostel for</label>
+                                <select name="hostel_for" class="form-control" value="{{hostel.hostel_for}}">
+                                    <option>Select</option>
+                                    <option>Boys</option>
+                                    <option>Girls</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Room Beds</label>
+                                <input type="text" class="form-control" name="hostel_room_bed" value="{{hostel.hostel_room_bed}}">
+                            </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Hostel Details</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

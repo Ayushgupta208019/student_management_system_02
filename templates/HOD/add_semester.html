@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card my-4 mx-4 p-3 pt-2 bg-primary">
+    <div class="row">
+        <div class="col sm-12">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <form method="post", action="{% url 'add_semester' %}">
+                        {% csrf_token %}
+
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Semester</span></h5>
+                        </div>
+                        
+                        {% include 'includes/messages.html' %}
+
+        
+
+                        <div class="col-12 col-sm-11">
+                            <div class="form-group">
+                                <label>Enter Semester And Year</label>
+                                <input type="text" class="form-control" name="semester_name" placeholder="eg. 1st semester 1st year" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Semester</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

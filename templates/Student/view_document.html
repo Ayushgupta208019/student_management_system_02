@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+{% block style %}
+<style>
+   button a{
+      color: white;
+   }
+</style>
+{% endblock style %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">View Documents</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">View Documents</li>
+             </ul>
+          </div>
+          
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table class="table table-hover table-center mb-0">
+                      <thead>
+                         <tr>
+                            <th>Subject Name</th>
+                            <th>Assignments/Documents/Pdfs</th>
+                            <th>Message/Remark</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for x in document %}
+                         <tr>
+                            <td><strong>{{x.subject_name.name}}</strong></td>
+                            {% comment %} <td><a href="{{x.document.url}}" download="{{x.document.url}}">{{x.document}}</a></td> {% endcomment %}
+                            <td><button type="button" class="btn btn-danger"><i class="fas fa-download"><a href="{{x.document.url}}" download="{{x.document.url}}">&nbsp Download Pdf</a></i></button></td>
+                            
+                            <td>{{x.message}}</td>
+                            {% comment %} <td class="text-right">
+                                 <div class="actions">
+                                    {% if mark >= 50 %}
+                                    <span>pass</span>
+                                    {% else %}
+                                    <span>fail</span>
+                                    {% endif %}
+                                 </div>
+                            </td> {% endcomment %}
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}

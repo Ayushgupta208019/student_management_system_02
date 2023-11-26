@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content container-fluid">
+    <div class="page-header">
+       <div class="row align-items-center">
+          <div class="col">
+             <h3 class="page-title">View Result</h3>
+             <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">View Result</li>
+             </ul>
+          </div>
+          <div class="col-auto text-right float-right ml-auto">
+             <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+             <a href="{% url 'add_subject' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          </div>
+       </div>
+    </div>
+    {% include 'includes/messages.html' %}
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card card-table">
+             <div class="card-body">
+                <div class="table-responsive">
+                   <table id="table_id" class="table table-hover table-center mb-0">
+                      <thead>
+                         <tr>
+                            <th>Subject Name</th>
+                            <th>Assignment/Sessional/SCA Marks</th>
+                            <th>Written Marks</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        {% for x in result %}
+                         <tr>
+                            <td><strong>{{x.subject_id.name}}</strong></td>
+                            <td>{{x.assignment_mark}}</td>
+                            <td>{{x.exam_marks}}</td>
+                            {% comment %} <td class="text-right">
+                                 <div class="actions">
+                                    {% if mark >= 50 %}
+                                    <span>pass</span>
+                                    {% else %}
+                                    <span>fail</span>
+                                    {% endif %}
+                                 </div>
+                            </td> {% endcomment %}
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                        <tfoot>
+                        <tr> 
+                           <td colspan="2"><strong>NOTE</strong>- If Total Marks in each subjects is greater than or equal 50 then you are passed on this subject</td>
+                        </tr>
+                     </tfoot>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}
