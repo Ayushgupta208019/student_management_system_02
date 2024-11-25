@@ -1,3 +1,5 @@
+                                                           Summary of my Project
+
 I am developing a comprehensive multi-panel management system with distinct role-based functionalities for HODs, Faculty, Students, and Admin. Each panel has specific permissions tailored to its users:
 
 HOD Panel:
